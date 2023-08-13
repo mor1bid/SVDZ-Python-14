@@ -17,17 +17,25 @@
 def newstr(text, nid = 0):
     """
     Выводит каждое введённое пользователем значение с новой строки, с нумерацией, отсортированно согласно Unicode
-    >>> newstr(Hello World!, 0)
-    1. Hello
-    2. World!
+    >>> newstr('Hello World!')
+    ['1. Hello', '2. World!']
     """
-    for l in sorted(text.split()):
-        nid += 1
-        print(f'{nid}. {l}')
+    text = sorted(text.split())
+    stext = list()
 
-text = input("1. Здравствуйте. Введите желаемые значения\n: ")
-print(f"\nРезультат: {newstr(text)}")
+    for line in text:
+        nid += 1
+        stext.append(str(nid) + '. ' + line)
+        # print(f'{nid}. {line}')
+    return stext
+
+text = input("1. Здравствуйте. Введите желаемый текст\n: ")
+res = newstr(text)
+print(f"\nРезультат:" )
+print(*res, sep="\n")
 
 if __name__ == '__main__':
     from doctest import testmod
+    from doctest import testfile
     testmod(verbose=True)
+    # testfile('testtxt.md', verbose=True)
