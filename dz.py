@@ -52,7 +52,7 @@ while (compute):
 
 def industry(mylist):
     """
-    >>> industry(5614245456486)
+    >>> industry('5614245456486')
     ['5', '6', '4']
     """
     warehouse = list(mylist)
@@ -74,7 +74,7 @@ def industry(mylist):
 
 class IndusTest(unittest.TestCase):
     def test_industry(self):
-        res = industry(5614245456486)
+        res = industry('5614245456486')
         self.assertEquals(res, ['5', '6', '4'], msg='Что-то пошло не так :(')
 
 def test_industry():
